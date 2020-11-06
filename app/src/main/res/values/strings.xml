@@ -1,0 +1,61 @@
+<resources>
+    <string name="app_name">Treinamento</string>
+    <string name="base_url"></string>
+
+    <!--Navigation-->
+    <string name="activity">Atividade</string>
+    <string name="awards">Prêmiações</string>
+    <string name="ranking">Ranking</string>
+    <string name="profile">Perfil</string>
+
+    <!--Login-->
+    <string name="login">Login</string>
+    <string name="cpf">CPF</string>
+    <string name="name_birth">Nome + Data de Nascimento</string>
+    <string name="forgot_password">Esqueceu sua senha?</string>
+    <string name="keep_loggedin">Me manter conectado</string>
+    <string name="enter">Entrar</string>
+
+    <!--SignUp-->
+    <string name="welcome">Bem vinda,</string>
+    <string name="finish_signup">Finalize o seu cadastro para começar a usar o app !</string>
+    <string name="phone">Telefone</string>
+    <string name="add_photo">add foto</string>
+    <string name="email">Email</string>
+    <string name="unity">Unidade</string>
+    <string name="role">Cargo</string>
+    <string name="sign_up">Cadastrar</string>
+
+    <!--Activities-->
+    <string name="good_attendance">Bom atendimento</string>
+    <string name="relationship">Relação c/ colegas</string>
+    <string name="faults">Faltas</string>
+    <string name="efficiency">Eficiência</string>
+    <string name="deadline">Prazo: </string>
+
+    <!--Prizes-->
+    <string name="prizes">Prêmios</string>
+    <string name="vouchers">Vouchers</string>
+    <string name="expiring_date">Validade: %s</string>
+
+    <!--Profile-->
+    <string name="name">Nome</string>
+    <string name="contact_hr">Contatar RH</string>
+
+    <!--Ranking-->
+    <string name="store">Loja</string>
+    <string name="net">Rede</string>
+
+
+    <!--Get in touch-->
+    <string name="send">Enviar</string>
+    <string name="get_in_touch_with_anonymously">Contatar anonimamente</string>
+    <string name="type_message">Digite a sua mensagem...</string>
+
+    <string name="save">Salvar</string>
+
+    <string name="required_field">Campo obrigatório!</string>
+    <string name="password">Senha</string>
+
+    <string name="error_conection">Erro de conexão</string>
+</resources>

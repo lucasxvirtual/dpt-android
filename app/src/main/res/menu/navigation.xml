@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/activity"
+        android:checked="true"
+        android:icon="@drawable/icon_vs_gray"
+        android:title="" />
+
+    <item
+        android:id="@+id/awards"
+        android:checked="false"
+        android:icon="@drawable/icon_star_gray"
+        android:title=""/>
+
+    <item
+        android:id="@+id/ranking"
+        android:checked="false"
+        android:icon="@drawable/icon_bars_gray"
+        android:title="" />
+
+    <item
+        android:id="@+id/profile"
+        android:checked="false"
+        android:icon="@drawable/icon_profile_gray"
+        android:title="" />
+
+</menu>

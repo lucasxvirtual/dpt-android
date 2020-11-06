@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.drogariadopovo.treinamento.presentation.activity.login.LoginViewModel" />
+    </data>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/light_gray">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:background="@color/red"
+            android:layout_weight="0.1">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/header_drug_store"/>
+
+        </LinearLayout>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginStart="15dp"
+            android:layout_marginEnd="15dp"
+            app:cardElevation="10dp"
+            android:layout_marginBottom="35dp"
+            app:cardCornerRadius="5dp"
+            android:backgroundTint="@color/white"
+            android:layout_weight="1">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="200dp"
+                    android:layout_height="145dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/cartao"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/login"
+                    android:layout_gravity="center"
+                    android:textSize="30sp"
+                    android:layout_marginTop="5dp"
+                    android:textColor="@color/blue"
+                    android:fontFamily="@font/montserrat_bold"/>
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:id="@+id/cpf"
+                    android:hint="@string/cpf"
+                    android:textSize="16sp"
+                    android:paddingStart="25dp"
+                    android:paddingEnd="25dp"
+                    android:text="@={viewModel.username}"
+                    android:fontFamily="@font/montserrat_regular"
+                    android:layout_marginStart="30dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginEnd="30dp"
+                    android:textColorHint="@color/blue"
+                    android:textColor="@color/blue"
+                    android:background="@drawable/round_edittext"/>
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:id="@+id/password"
+                    android:hint="@string/password"
+                    android:textSize="16sp"
+                    android:inputType="textPassword"
+                    android:text="@={viewModel.password}"
+                    android:paddingStart="25dp"
+                    android:paddingEnd="25dp"
+                    android:fontFamily="@font/montserrat_regular"
+                    android:layout_marginStart="30dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginEnd="30dp"
+                    android:textColorHint="@color/blue"
+                    android:textColor="@color/blue"
+                    android:background="@drawable/round_edittext"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/forgot_password"
+                    android:text="@string/forgot_password"
+                    android:layout_gravity="end"
+                    android:onClick="@{() -> viewModel.forgotPassword()}"
+                    android:textSize="14sp"
+                    android:layout_marginEnd="30dp"
+                    android:layout_marginTop="10dp"
+                    android:textColor="@color/light_gray2"/>
+
+                <CheckBox
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/checkbox_keep_logged_in"
+                    android:textColor="@color/blue"
+                    android:layout_marginStart="30dp"
+                    android:buttonTint="@color/blue"
+                    android:layout_marginTop="20dp"
+                    android:textSize="14sp"
+                    android:checked="@={viewModel.remember}"
+                    android:text="@string/keep_loggedin"/>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <Button
+                        android:layout_width="match_parent"
+                        android:layout_height="45dp"
+                        android:layout_marginStart="100dp"
+                        android:id="@+id/enter"
+                        android:elevation="10dp"
+                        android:layout_marginEnd="100dp"
+                        android:text="@string/enter"
+                        android:textSize="16sp"
+                        android:onClick="@{() -> viewModel.login()}"
+                        android:layout_centerInParent="true"
+                        android:textColor="@color/white"
+                        android:fontFamily="@font/montserrat_regular"
+                        android:layout_marginBottom="20dp"
+                        android:backgroundTint="@color/blue"
+                        android:background="@drawable/round_edittext"/>
+
+                </RelativeLayout>
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+    </LinearLayout>
+</layout>

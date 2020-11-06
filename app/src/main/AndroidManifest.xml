@@ -1,0 +1,42 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.drogariadopovo.treinamento">
+
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.INTERNET"/>
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:name=".BaseApplication"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        tools:replace="android:label"
+        android:usesCleartextTraffic="true"
+        android:theme="@style/AppTheme">
+
+        <activity android:name="com.drogariadopovo.treinamento.presentation.activity.main.MainActivity"
+            android:screenOrientation="portrait"/>
+
+        <activity android:name="com.drogariadopovo.treinamento.presentation.activity.getintouch.GetInTouchActivity"
+            android:screenOrientation="portrait"
+            android:label="Contatar RH"/>
+
+        <activity android:name="com.drogariadopovo.treinamento.presentation.activity.duel.DuelActivity"
+            android:screenOrientation="portrait"/>
+
+        <activity android:name="com.drogariadopovo.treinamento.presentation.activity.quiz.QuizActivity"
+            android:screenOrientation="portrait"
+            android:label="@string/activity"/>
+
+        <activity android:name="com.drogariadopovo.treinamento.presentation.activity.login.LoginActivity"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+    </application>
+</manifest>
