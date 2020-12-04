@@ -1,31 +1,30 @@
 package com.drogariadopovo.treinamento.presentation.fragment.awards
 
 import android.os.Bundle
-import androidx.core.content.ContextCompat
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
-import br.com.guiadeacessibilidade.util.ViewHolder
 import com.drogariadopovo.treinamento.R
 import com.drogariadopovo.treinamento.databinding.FragmentAwardsBinding
-import com.drogariadopovo.treinamento.presentation.BaseViewModel
+import com.drogariadopovo.treinamento.presentation.adapter.PrizeAdapter
 import com.drogariadopovo.treinamento.presentation.adapter.VoucherAdapter
 import com.drogariadopovo.treinamento.presentation.fragment.BaseFragment
-import com.drogariadopovo.treinamento.util.GenericRecyclerAdapter
-import kotlinx.android.synthetic.main.fragment_awards.*
-import kotlinx.android.synthetic.main.fragment_awards.view.*
 import javax.inject.Inject
 
 class AwardsFragment : BaseFragment() {
-
-    private var list = listOf("1","2","3")
 
     @Inject
     lateinit var viewModel : AwardsViewModel
 
     lateinit var binding: FragmentAwardsBinding
+
+    private val prizeAdapter = PrizeAdapter(emptyList())
+    private val voucherAdapter = VoucherAdapter(emptyList(), this).apply {
+        onButtonClickListener = {}
+    }
 
     override fun getBaseViewModel() = viewModel
 
@@ -42,9 +41,13 @@ class AwardsFragment : BaseFragment() {
 
         viewModel.getVouchers().observe(viewLifecycleOwner, Observer {
             it?.let {
-                binding.recyclerPrizesVoucher.adapter = VoucherAdapter(it, this).apply {
-                    onButtonClickListener = {  }
-                }
+                voucherAdapter.replaceItems(it)
+            }
+        })
+
+        viewModel.getPrizes().observe(viewLifecycleOwner, Observer {
+            it?.let {
+                prizeAdapter.replaceItems(it)
             }
         })
 
@@ -67,7 +70,7 @@ class AwardsFragment : BaseFragment() {
         binding.vouchersText.setTextColor(ContextCompat.getColor(view!!.context,R.color.blue))
         binding.vouchers.backgroundTintList = ContextCompat.getColorStateList(view!!.context, R.color.white)
 
-        setAdapterPrizes(list)
+        binding.recyclerPrizesVoucher.adapter = prizeAdapter
     }
 
     private fun onVoucherClicked(){
@@ -78,23 +81,8 @@ class AwardsFragment : BaseFragment() {
         binding.vouchers.backgroundTintList = ContextCompat.getColorStateList(view!!.context, R.color.blue)
 
         binding.recyclerPrizesVoucher.layoutManager = LinearLayoutManager(context)
-        binding.recyclerPrizesVoucher.adapter = VoucherAdapter(viewModel.getVouchers().value!!, this).apply {
-            onButtonClickListener = {  }
-        }
-    }
 
-    //TODO: Created adapter mvvm
-    fun setAdapterPrizes(list : List<String>){
-        recycler_prizes_voucher?.adapter = GenericRecyclerAdapter<String, ViewHolder>(context, list, object : GenericRecyclerAdapter.GenericRecyclerViewInterface<String, ViewHolder>{
-            override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): ViewHolder {
-                return ViewHolder(layoutInflater.inflate(R.layout.item_prizes, parent, false))
-            }
-
-            override fun onBindViewHolder(holder: ViewHolder?, position: Int, list: List<String>?) {
-                val view = holder!!.itemView
-
-            }
-        })
+        binding.recyclerPrizesVoucher.adapter = voucherAdapter
     }
 
 }

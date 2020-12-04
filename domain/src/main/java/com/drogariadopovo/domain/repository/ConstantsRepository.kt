@@ -7,4 +7,6 @@ interface ConstantsRepository{
     fun getConstants() : Single<Constants>
 
     fun saveConstants(constants: Constants)
+
+    fun contact(user : Int?, message : String) : Single<Int>
 }

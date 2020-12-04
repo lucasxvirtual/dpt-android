@@ -1,10 +1,12 @@
 package com.drogariadopovo.treinamento.ext
 
 import android.content.res.Resources
+import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.MutableLiveData
 import com.drogariadopovo.treinamento.R
+import com.squareup.picasso.Picasso
 import java.util.*
 
 
@@ -31,6 +33,11 @@ fun AppCompatActivity.addFragment(fragment: Fragment, id: Int? = null) {
     val transaction = supportFragmentManager.beginTransaction()
     transaction.replace(mId, fragment)
     transaction.commit()
+}
+
+@JvmName("loadImage")
+fun ImageView.loadImage(url: String) {
+    Picasso.get().load(url).into(this)
 }
 
 @JvmName("isCPF")

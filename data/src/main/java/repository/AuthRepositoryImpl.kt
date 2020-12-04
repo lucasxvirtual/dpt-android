@@ -56,8 +56,8 @@ class AuthRepositoryImpl @Inject constructor(
         return session.getRemember()
     }
 
-    override fun putUser(id : Int, name : String, phone : String?, profileImage : String?): Single<User> {
-        return authApi.putUser(id, name, phone, profileImage).map { userMapper.map(it) }
+    override fun putUser(id : Int, name : String, phone : String?): Single<User> {
+        return authApi.putUser(id, name, phone).map { userMapper.map(it) }
     }
 
     override fun contact(anonymous: Boolean, message: String): Single<Worked> {

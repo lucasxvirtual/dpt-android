@@ -15,4 +15,7 @@
     <color name="tt">#00555555</color>
 
     <color name="green">#16c27d</color>
+    <color name="bronze">#bf8970</color>
+    <color name="silver">#c0c0c0</color>
+    <color name="gold">#FFD700</color>
 </resources>

@@ -34,7 +34,7 @@ class VoucherAdapter(private var vouchers: List<Voucher>, private val fragment: 
 
             if (!voucher.image.isNullOrEmpty()){
                 Picasso.get()
-                        .load(voucher.image)
+                        .load("http://165.227.177.8/" + voucher.image)
                         .fit()
                         .centerCrop()
                         .into(binding.image)

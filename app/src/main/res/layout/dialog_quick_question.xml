@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardElevation="5dp"
+    app:cardCornerRadius="5dp"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <ImageView
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:layout_marginTop="40dp"
+            android:layout_gravity="center"
+            android:src="@drawable/vovo_funcionario"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="22sp"
+            android:text="@string/quick_question"
+            android:layout_marginTop="20dp"
+            android:layout_gravity="center"
+            android:textColor="@color/red"
+            android:fontFamily="@font/montserrat_bold"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:gravity="center"
+            android:id="@+id/text"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:text="@string/quick_question"
+            android:layout_marginTop="20dp"
+            android:layout_gravity="center"
+            android:textColor="@color/blue"
+            android:fontFamily="@font/montserrat_bold"/>
+
+        <LinearLayout android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_marginTop="40dp"
+            android:layout_marginBottom="40dp"
+            android:orientation="horizontal">
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="45dp"
+                android:id="@+id/yes"
+                android:textSize="16sp"
+                android:layout_marginEnd="20dp"
+                android:textColor="@color/white"
+                android:fontFamily="@font/montserrat_regular"
+                android:backgroundTint="@color/blue"
+                android:background="@drawable/round_edittext"/>
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="45dp"
+                android:id="@+id/no"
+                android:layout_marginStart="20dp"
+                android:textSize="16sp"
+                android:textColor="@color/white"
+                android:fontFamily="@font/montserrat_regular"
+                android:backgroundTint="@color/blue"
+                android:background="@drawable/round_edittext"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+</androidx.cardview.widget.CardView>

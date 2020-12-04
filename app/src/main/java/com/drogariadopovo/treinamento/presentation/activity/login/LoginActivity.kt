@@ -23,6 +23,8 @@ class LoginActivity : BaseActivity() {
 
         screenComponent.inject(this)
 
+        viewModel.bound()
+
         binding.let {
             it.viewModel = viewModel
             it.lifecycleOwner = this

@@ -1,20 +1,20 @@
 package com.drogariadopovo.domain.usecase
 
-import com.drogariadopovo.domain.WorkedResult
-import com.drogariadopovo.domain.repository.AuthRepository
+import com.drogariadopovo.domain.EmptyResult
+import com.drogariadopovo.domain.repository.ConstantsRepository
 import io.reactivex.Observable
 import javax.inject.Inject
 
-class ContactUseCase @Inject constructor(private val authRepository: AuthRepository){
+class ContactUseCase @Inject constructor(private val constantsRepository: ConstantsRepository){
 
 
-    fun execute(message : String, anonymous : Boolean): Observable<WorkedResult> {
-        return authRepository.contact(anonymous, message)
+    fun execute(message : String, user : Int?): Observable<EmptyResult> {
+        return constantsRepository.contact(user, message)
                 .toObservable()
                 .map {
-                    WorkedResult.Success(it) as WorkedResult
+                    EmptyResult.Success(it) as EmptyResult
                 }
-                .onErrorReturn { WorkedResult.Failure(it) }
-                .startWith(WorkedResult.Loading)
+                .onErrorReturn { EmptyResult.Failure(it) }
+                .startWith(EmptyResult.Loading)
     }
 }

@@ -1,5 +1,6 @@
 package com.drogariadopovo.treinamento.presentation.fragment.activities
 
+import androidx.core.os.bundleOf
 import androidx.lifecycle.MutableLiveData
 import com.drogariadopovo.domain.QuizResult
 import com.drogariadopovo.domain.model.Quiz
@@ -24,6 +25,12 @@ class ActivitiesViewModel @Inject constructor(private val quizUseCase: GetQuizUs
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe {handleQuizResult(it)}
                 .addTo(disposables)
+    }
+
+    override fun onClickItem(item: Any) {
+        val quiz = item as Quiz
+        val bundle = bundleOf("quiz" to quiz)
+        router.navigate(ActivitiesRouter.Route.QUIZ, bundle)
     }
 
     private fun handleQuizResult(result: QuizResult){

@@ -19,6 +19,7 @@ class GetInTouchActivity : BaseActivity() {
         val binding : ActivityGetInTouchBinding = DataBindingUtil.setContentView(this, R.layout.activity_get_in_touch)
 
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        screenComponent.inject(this)
 
         binding.let {
             it.lifecycleOwner = this

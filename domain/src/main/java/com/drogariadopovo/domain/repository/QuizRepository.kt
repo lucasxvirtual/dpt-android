@@ -17,6 +17,10 @@ interface QuizRepository {
 
     fun getVoucher() : Single<List<Voucher>>
 
-//    fun getQuickQuestions() : Single<List<Question>>
+    fun getQuickQuestions() : Single<Question>
+
+    fun postQuickQuestionAnswer(id : Int, answer: String) : Single<Worked>
+
+    fun getPrize() : Single<List<Prize>>
 
 }

@@ -13,7 +13,10 @@ class QuizRepositoryImpl @Inject constructor(
         private val userAnswerMapper: UserAnswerMapper,
         private val userMapper: UserMapper,
         private val branchMapper: BranchMapper,
-        private val voucherMapper: VoucherMapper
+        private val voucherMapper: VoucherMapper,
+        private val quickQuestionMapper: QuickQuestionMapper,
+        private val workedMapper: WorkedMapper,
+        private val prizeMapper: PrizeMapper
 ) : QuizRepository {
 
     override fun getQuiz(): Single<QuizPagination> {
@@ -40,8 +43,15 @@ class QuizRepositoryImpl @Inject constructor(
         return quizApi.getVoucher().map { voucherMapper.map(it) }
     }
 
-//    override fun getQuickQuestions(): Single<List<Question>> {
-//        return quizApi.getQuiz().map { quizPaginationMapper.map(it) }
-//    }
+    override fun getQuickQuestions(): Single<Question> {
+        return quizApi.getQuickQuestion().map { quickQuestionMapper.map(it) }
+    }
 
+    override fun postQuickQuestionAnswer(id : Int, answer: String) : Single<Worked> {
+        return quizApi.postQuickQuestionAnswer(id, answer).map { workedMapper.map(it) }
+    }
+
+    override fun getPrize(): Single<List<Prize>> {
+        return quizApi.getPrize().map { prizeMapper.map(it) }
+    }
 }

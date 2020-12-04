@@ -18,7 +18,7 @@ class DuelActivity : BaseActivity() {
 
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
-        val toolbarTitle = intent.extras["title"] as String
+        val toolbarTitle = intent.extras!!["title"] as String
         supportActionBar?.title = toolbarTitle
     }
 

@@ -5,6 +5,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.drogariadopovo.domain.UserResult
 import com.drogariadopovo.domain.usecase.AuthUseCase
+import com.drogariadopovo.domain.usecase.RememberUseCase
 import com.drogariadopovo.treinamento.BaseApplication
 import com.drogariadopovo.treinamento.presentation.BaseViewModel
 import io.reactivex.android.schedulers.AndroidSchedulers
@@ -13,6 +14,7 @@ import io.reactivex.schedulers.Schedulers
 import javax.inject.Inject
 
 class LoginViewModel @Inject constructor(private val authUseCase: AuthUseCase,
+                                         private val rememberUseCase: RememberUseCase,
                                          private val loginRouter: LoginRouter,
                                          application: BaseApplication) : BaseViewModel(application) {
 
@@ -24,6 +26,13 @@ class LoginViewModel @Inject constructor(private val authUseCase: AuthUseCase,
 
     fun getUsernameError(): LiveData<Boolean> = usernameError
     fun getPasswordError(): LiveData<Boolean> = passwordError
+
+    fun bound(){
+        rememberUseCase.execute()?.subscribeOn(Schedulers.io())
+                ?.observeOn(AndroidSchedulers.mainThread())
+                ?.subscribe {handleLoginResult(it)}
+                ?.addTo(disposables)
+    }
 
     fun forgotPassword(){
 

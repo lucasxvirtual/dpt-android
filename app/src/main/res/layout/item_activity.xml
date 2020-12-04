@@ -99,10 +99,6 @@
 
                     </LinearLayout>
 
-                    <SeekBar
-                        android:layout_width="match_parent"
-                        android:layout_height="66dp"/>
-
                     <RelativeLayout
                         android:layout_width="match_parent"
                         android:layout_height="0dp"
@@ -116,7 +112,6 @@
                         <View
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:layout_marginEnd="66dp"
                             android:background="@drawable/round_progress_layout"
                             android:backgroundTint="@color/blue"/>
 

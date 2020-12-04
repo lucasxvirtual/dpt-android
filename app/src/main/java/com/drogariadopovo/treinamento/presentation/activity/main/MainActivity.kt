@@ -6,16 +6,18 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 import android.view.Menu
 import android.view.MenuItem
 import androidx.databinding.DataBindingUtil
+import androidx.lifecycle.Observer
 import br.com.guiadeacessibilidade.util.SharedPreferencesHelper
 import com.drogariadopovo.treinamento.R
 import com.drogariadopovo.treinamento.databinding.ActivityMainBinding
 import com.drogariadopovo.treinamento.presentation.BaseViewModel
 import com.drogariadopovo.treinamento.presentation.activity.BaseActivity
 import com.drogariadopovo.treinamento.presentation.activity.login.LoginActivity
-import com.drogariadopovo.treinamento.presentation.fragment.ProfileFragment
+import com.drogariadopovo.treinamento.presentation.fragment.profile.ProfileFragment
 import com.drogariadopovo.treinamento.presentation.fragment.activities.ActivitiesFragment
 import com.drogariadopovo.treinamento.presentation.fragment.awards.AwardsFragment
 import com.drogariadopovo.treinamento.presentation.fragment.ranking.RankingFragment
+import com.drogariadopovo.treinamento.presentation.popup.QuickQuestionPopup
 import javax.inject.Inject
 
 class MainActivity : BaseActivity() {
@@ -98,11 +100,23 @@ class MainActivity : BaseActivity() {
 
         screenComponent.inject(this)
 
+        viewModel.bound()
+
         binding.let{
             it.lifecycleOwner = this
             it.navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)
             it.navigation.isSaveEnabled = false
         }
+
+        viewModel.getQuestion().observe(this, Observer {
+            it?.let {question ->
+                QuickQuestionPopup(question){ answer ->
+                    viewModel.postAnswer(question.id, answer)
+                }.show(supportFragmentManager, "")
+            }
+        })
+
+
 
         supportActionBar?.title = "Atividade"
         addFragment(fragment1)

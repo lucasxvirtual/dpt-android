@@ -22,7 +22,7 @@ interface AuthRepository{
 
 //    fun putImage(id : Int, image : String) : Single<User>
 
-    fun putUser(id : Int, name : String, phone : String?, profileImage : String?) : Single<User>
+    fun putUser(id : Int, name : String, phone : String?) : Single<User>
 
 //    fun putPassword(id: Int, passwordOld: String, passwordNew: String): Single<User>
 

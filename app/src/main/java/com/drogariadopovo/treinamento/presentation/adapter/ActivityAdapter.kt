@@ -19,6 +19,10 @@ class ActivityAdapter (private var quiz: List<Quiz>): RecyclerView.Adapter<Activ
         fun bind(quiz: Quiz) {
             this.quiz = quiz
             binding.viewHolder = this
+
+            binding.root.setOnClickListener {
+                onButtonClickListener?.invoke(quiz)
+            }
         }
 
         fun getFormattedPercent() = String.format("%d%%", (quiz.percent*100).toInt())

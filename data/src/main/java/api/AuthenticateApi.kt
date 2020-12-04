@@ -13,8 +13,8 @@ class AuthenticateApi @Inject constructor(private val authEndpoint: Authenticate
         return authEndpoint.getUser()
     }
 
-    fun putUser(id: Int, name : String, phone : String?, profileImage : String?) : Single<UserResponse>{
-        return authEndpoint.putUser(id, name, phone, profileImage)
+    fun putUser(id: Int, name : String, phone : String?) : Single<UserResponse>{
+        return authEndpoint.putUser(id, name, phone)
     }
 
     fun putPassword(id: Int, passwordOld: String, passwordNew: String) : Single<UserResponse>{

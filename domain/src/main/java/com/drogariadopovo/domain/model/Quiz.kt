@@ -9,4 +9,8 @@ data class Quiz(
         val title : String,
         val description : String?,
         val dueDate : String?
-) : Serializable
+) : Serializable {
+
+    fun getFormattedPercent() = String.format("%d%%", (percent.times(100)).toInt())
+
+}

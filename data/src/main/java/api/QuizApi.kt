@@ -30,4 +30,16 @@ class QuizApi @Inject constructor(private val quizEndPoint: QuizEndPoint) {
         return quizEndPoint.getVoucher()
     }
 
+    fun getQuickQuestion() : Single<QuickQuestionResponse> {
+        return quizEndPoint.getQuickQuestion()
+    }
+
+    fun postQuickQuestionAnswer(id : Int, answer: String) : Single<WorkedResponse> {
+        return quizEndPoint.postQuickQuestionAnswer(id, answer)
+    }
+
+    fun getPrize() : Single<List<PrizeResponse>> {
+        return quizEndPoint.getPrizeUser()
+    }
+
 }

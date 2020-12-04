@@ -1,42 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     package="com.drogariadopovo.treinamento">
 
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
+        android:name=".BaseApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
-        android:name=".BaseApplication"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        tools:replace="android:label"
+        android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true"
-        android:theme="@style/AppTheme">
+        tools:replace="android:label">
 
-        <activity android:name="com.drogariadopovo.treinamento.presentation.activity.main.MainActivity"
-            android:screenOrientation="portrait"/>
-
-        <activity android:name="com.drogariadopovo.treinamento.presentation.activity.getintouch.GetInTouchActivity"
-            android:screenOrientation="portrait"
-            android:label="Contatar RH"/>
-
-        <activity android:name="com.drogariadopovo.treinamento.presentation.activity.duel.DuelActivity"
-            android:screenOrientation="portrait"/>
-
-        <activity android:name="com.drogariadopovo.treinamento.presentation.activity.quiz.QuizActivity"
-            android:screenOrientation="portrait"
-            android:label="@string/activity"/>
-
-        <activity android:name="com.drogariadopovo.treinamento.presentation.activity.login.LoginActivity"
+        <activity
+            android:name=".presentation.activity.main.MainActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".presentation.activity.getintouch.GetInTouchActivity"
+            android:label="Contatar RH"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".presentation.activity.duel.DuelActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".presentation.activity.quiz.QuizActivity"
+            android:label="@string/activity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".presentation.activity.login.LoginActivity"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
+        <activity android:name=".presentation.activity.question.QuestionActivity"
+            android:noHistory="true"/>
     </application>
+
 </manifest>

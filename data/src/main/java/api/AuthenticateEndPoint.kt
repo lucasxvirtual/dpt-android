@@ -28,8 +28,7 @@ interface AuthenticateEndPoint {
     @PATCH("core/user/{id}/")
     fun putUser(@Path ("id") id: Int,
                 @Field ("name") name : String,
-                @Field ("phone") phone : String?,
-                @Field("profile_image") profile_image : String?) : Single<UserResponse>
+                @Field ("phone") phone : String?) : Single<UserResponse>
 
     @FormUrlEncoded
     @PATCH("core/user/{id}/")
